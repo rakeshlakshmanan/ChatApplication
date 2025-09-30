@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+}
+
+body {
+    margin: 0;
+    background-color: #f3f0ff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: rgba(172, 134, 226, 0.4);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar .profile {
+    margin-bottom: 10px;
+}
+
+#userlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#userlist li {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in;
+}
+
+#userlist li:hover {
+    background-color: #dcd0ff;
+}
+
+.chat-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+}
+
+.chat-header {
+    padding: 15px;
+    background-color: #e6e6fa;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    border-radius: 10px;
+    line-height: 1.4;
+    font-size: 15px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.sent {
+    background-color: #c7b5e7;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.received {
+    background-color: #c7b5e7;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: #ffff;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #6749ad;
+    color: white;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chat-input button:hover {
+    background-color: #a17cff;
+}
+
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.logout-button a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #6a5acd;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* ===== Group Modal Styling (Checkbox version) ===== */
+#groupModal.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 51, 153, 0.3);
+    /* semi-transparent overlay */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#groupModal .modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 350px;
+    max-width: 90%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: left;
+}
+
+#groupModal .modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #4b2e83;
+}
+
+#groupModal .modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+#groupModal input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+#memberCheckboxes {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+#memberCheckboxes label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#groupModal button {
+    padding: 10px 16px;
+    background-color: #6749ad;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+#groupModal button:hover {
+    background-color: #8461c9;
+}
+
+.sender-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #5a4fcf;
+    margin-bottom: 4px;
+    margin-left: 5px;
+}
+
+.message-text {
+    background-color: #c8b4ec;
+    padding: 8px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.sender-label.hidden-sender {
+    display: none;
+}

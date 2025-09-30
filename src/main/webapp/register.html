@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register Page</title>
+<style>
+    body { font-family: Arial; text-align: center; padding-top: 50px; }
+    form { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+    input { display: block; margin: 10px auto; padding: 8px; width: 200px; }
+    button { padding: 8px 16px; }
+    .error {color: red; font-size:14px;}
+  </style>
+</head>
+<body>
+<h2>Register</h2>
+  <form id="registerForm" action="RegisterToDb" method="post" onsubmit="return validateForm()">
+    <input type="text" name="username" id="username" placeholder="Type username" required />
+    <input type="password" name="password" id="password" placeholder="Type password" required />
+    <div class="error" id="passwordError"></div>
+    <button type="submit">Register</button>
+    <p><a href="index.html">Back to login</a></p>
+  </form>
+  <script>
+  	function validateForm(){
+  		const password = document.getElementById("password");
+  		const error = document.getElementById("passwordError");
+  		const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+  		
+  		if(!regex.test(password.value)){
+  			error.textContent = "Password must be at least 8 characters, include uppercase, lowercase, number, and special character.";
+  			return false;
+  		}
+  		error.textContent="";
+  		return true;
+  	}
+  	
+  </script>	
+</body>
+</html>
